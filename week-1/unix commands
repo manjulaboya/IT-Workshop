@@ -1,0 +1,163 @@
+                                     Unix users commands
+*These commands allow you to get basic information about Unix users in your environment.
+//1.whoami: show your username
+user@manju:~$ whoami
+user
+
+//2.id : print user identity
+user@manju:~$ id
+uid=1000(user) gid=1000(user) groups=1000(user),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),132(lxd),133(sambashare)
+
+//3.groups: show which groups user belongs to
+user@manju:~$ groups
+user adm cdrom sudo dip plugdev lpadmin lxd sambashare
+
+//4.passwd: change user password
+user@manju:~$ passwd
+Changing password for user.
+Current password: 
+New password: 
+Retype new password: 
+passwd: password updated successfully
+
+//5.who: find out who is logged into the system
+user@manju:~$ who
+user     :0           2024-04-23 20:01 (:0)
+
+//6.last: show history of logins into the system
+user@manju:~$ last
+user     :0           :0               Tue Apr 23 20:01   still logged in
+reboot   system boot  5.15.0-58-generi Tue Apr 23 20:01   still running
+user     :0           :0               Mon Apr 22 21:06 - down   (00:05)
+reboot   system boot  5.15.0-58-generi Mon Apr 22 21:06 - 21:12  (00:05)
+.......................................so on.
+
+//7.clear: clear a terminal screen
+user@manju:~$ clear
+
+//8.history: print history of commands in the current session
+user@manju:~$ history
+ 1006  java -d .ME.java
+ 1007  java -d . ME.java
+ 1008  java -d. ME.java
+ 1009  java -d . ME.java
+ 1010  java -d . CSE.java
+ 1011  javac -d . CSE.java
+ 1012  javac -d . ECE.java
+ 1013  javac -d . CE.java
+ 1014  javac -d . ME.java
+ 1015  javac dept_pack.java
+...................so on.
+
+//9.touch: Create a new file or update its timestamp.
+user@manju:~$ touch file1
+user@manju:~$ touch file2
+
+//10.cat: Concatenate files and print to stdout.
+user@manju:~$ cat>file1
+hello world
+
+//11.cp: Copies the contents from file1 to file2 and the contents of file1 are retained
+user@manju:~$ cp file1 file2
+
+//12.mv: Create empty files called ‘file1’ and ‘file2’
+user@manju:~$ mv file1 file2
+
+//13.rm: Remove files and directories
+user@manju:~$ rm file2
+
+//14.mkdir: Make a directory
+(folder is created with dir1 name)
+user@manju:~$ mkdir dir1
+
+//15.cd: Change working directory to dir1
+user@manju:~$ cd dir1
+user@manju:~/dir1$ 
+
+//16.rmdir: Remove a directory
+user@manju:~$ rmdir dir1
+
+17.pwd: Print the present working directory
+user@manju:~$ pwd
+/home/user
+
+//18.list all (including hidden files) directory contents, in long format, sorted by
+user@manju:~$ ls
+ a.html                 index.html
+ alternatestr_count.c   inheritance_demo.html
+ animation.html         javascript
+ b.c                    knapsackwithout_memory.c
+ bgimageadding.html     loader.html
+ binarysearch.c         manju
+ biodata.html           man.png
+ ............................so on.
+ 
+user@manju:~$ ls -alt
+total 944
+drwxr-xr-x 30 user user  16384 Apr 23 20:42  .
+-rw-------  1 user user  29953 Apr 23 20:42  .bash_history
+drwxrwxr-x  2 user user   4096 Apr 23 20:40  dir1
+-rw-rw-r--  1 user user   1652 Apr 23 20:32  week-1
+........................so on.
+user@manju:~$ ls -l
+total 812
+-rw-rw-r--  1 user user   4585 Apr  6 12:39  a.html
+-rw-rw-r--  1 user user    473 Mar 27 15:34  alternatestr_count.c
+-rw-rw-r--  1 user user   1271 Apr 12 10:57  animation.html
+-rw-rw-r--  1 user user    365 Apr 10 16:08  b.c
+...........................so on.
+user@manju:~$ ls -ltr
+total 812
+drwxr-xr-x  2 user user   4096 Mar 16  2022  Templates
+drwxr-xr-x  2 user user   4096 Mar 16  2022  Public
+drwx------  4 user user   4096 Jan 24  2023  snap
+.........................so on.
+user@manju:~$ ls -a
+ .                      imagesize.html
+ ..                    'index(1).html'
+ a.html                 index.html
+ alternatestr_count.c   inheritance_demo.html
+ ..........................so on.
+ 
+//19.which: List all paths from where ‘cat’ can run
+ user@manju:~$ which -a cat
+/usr/bin/cat
+/bin/cat
+
+//20.sudo: Execute a command as some other user or super-user
+user@manju:~$ sudo ls
+[sudo] password for user: 
+ a.html		        dir1			   position.html
+ alternatestr_count.c  'div inside div.html'	   practiceq1.html
+ animation.html         Documents		   PracticeQs.html
+ 
+//21.find: Used to search for files and directories as mentioned in the ‘expression’
+user@manju:~$ find
+./.mozilla/firefox/dniunrby.default-release/storage/default/https+++web.whatsapp.com/cache/morgue/63/{51ef3959-a50d-424d-9b07-95747635673f}.final
+./.mozilla/firefox/dniunrby.default-release/storage/default/https+++web.whatsapp.com/cache/morgue/63/{580263fd-f053-46c8-a691-0ce4414c573f}.final
+./.mozilla/firefox/dniunrby.default-release/storage/default/https+++web.whatsapp.com/cache/morgue/101
+./.mozilla/firefox/dniunrby.default-release/storage/default/https+++web.whatsapp.com/cache/morgue/101/{e8e6b52a-f6cb-4704-8c48-1d031c84f865}.final
+................................so on.
+
+//22.df: Show the number of free blocks for the mounted file system
+user@manju:~$ df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+udev             3918424        0   3918424   0% /dev
+tmpfs             791384     2184    789200   1% /run
+/dev/nvme0n1p2 244506940 53771084 178242800  24% /
+tmpfs            3956912        0   3956912   0% /dev/shm
+..........................so on.
+
+//23.cal: Displays the calendar.
+user@manju:~$ cal
+     April 2024       
+Su Mo Tu We Th Fr Sa  
+    1  2  3  4  5  6  
+ 7  8  9 10 11 12 13  
+14 15 16 17 18 19 20  
+21 22 23 24 25 26 27  
+28 29 30              
+
+//24.date: Displays the system date and time.                    
+user@manju:~$ date
+Tuesday 23 April 2024 09:02:33 PM UTC
